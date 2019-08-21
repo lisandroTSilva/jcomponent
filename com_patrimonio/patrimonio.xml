@@ -7,7 +7,7 @@
     <author>Lisandro Tavares da Silva</author>
     <authorEmail>lisandro.t.silva@gmail.com</authorEmail>
     <authorUrl></authorUrl>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <description>COM_PATRIMONIO_XML_DESCRIPTION</description>
     <updateservers>
 		<server type="extension" priority="1" name="Repositório do app de patrimônio">https://raw.githubusercontent.com/lisandroTSilva/jcomponent/master/build/com_patrimonio.xml</server>
