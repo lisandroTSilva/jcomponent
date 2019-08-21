@@ -7,7 +7,7 @@
     <author>Lisandro Tavares da Silva</author>
     <authorEmail>lisandro.t.silva@gmail.com</authorEmail>
     <authorUrl></authorUrl>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <description>COM_PATRIMONIO_XML_DESCRIPTION</description>
     <updateservers>
 		<server type="extension" priority="1" name="Repositório do app de patrimônio">https://raw.githubusercontent.com/lisandroTSilva/jcomponent/master/build/com_patrimonio.xml</server>
@@ -29,7 +29,7 @@
         </sql>
     </uninstall>
 
-    <files folder="site">
+    <!-- files folder="site">
         <filename>index.html</filename>
         <filename>patrimonio.php</filename>
         <filename>controller.php</filename>
@@ -38,7 +38,7 @@
         <folder>models</folder>
         <folder>controllers</folder>
         <folder>helpers</folder>
-    </files>
+    </files -->
 
     <media destination="com_patrimonio" folder="media">
         <folder>js</folder>
