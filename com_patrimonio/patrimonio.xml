@@ -7,7 +7,7 @@
     <author>Lisandro Tavares da Silva</author>
     <authorEmail>lisandro.t.silva@gmail.com</authorEmail>
     <authorUrl></authorUrl>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <description>COM_PATRIMONIO_XML_DESCRIPTION</description>
 
     <install>        <!-- Runs on install -->
