@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+    <layout title="COM_PATRIMONIO_TITLE_LIST_VIEW_PATRIMONIOS">
+        <message>
+            <![CDATA[COM_PATRIMONIO_TITLE_LIST_VIEW_PATRIMONIOS_DESC]]>
+        </message>
+    </layout>
+</metadata>
