@@ -59,9 +59,9 @@ function build($folder, $xmlfile, $client, $element)
 		<folder>' . $xml->attributes()->group . '</folder>
 		<client>' . $client . '</client>
 		<version>' . $xml->version . '</version>
-		<infourl title="Repositório ' . $xml->name . '">https://github.com/lisandroTSilva/jplugin</infourl>
-		<downloads>
-			<downloadurl type="full" format="zip">https://github.com/lisandroTSilva/jplugin/raw/master/build/' . $folder . '.zip</downloadurl>
+		<infourl title="Repositório ' . $xml->name . '">https://github.com/lisandroTSilva/jcomponent</infourl>
+        <downloads>
+			<downloadurl type="full" format="zip">https://github.com/lisandroTSilva/jcomponent/raw/master/build/' . $folder . '.zip</downloadurl>
 		</downloads>
 		<targetplatform name="joomla" version="3.[0123456789]"/>
 		<tags>
