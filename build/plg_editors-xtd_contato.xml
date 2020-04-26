@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<updates>
+	<update>
+		<name>Botão - Contato Formulário</name>
+		<element>btn_contato</element>
+		<type>plugin</type>
+		<folder>editors-xtd</folder>
+		<client>0</client>
+		<version>0.0.1</version>
+		<infourl title="Repositório Botão - Contato Formulário">https://github.com/lisandroTSilva/jcomponent</infourl>
+        <downloads>
+			<downloadurl type="full" format="zip">https://github.com/lisandroTSilva/jcomponent/raw/master/build/plg_editors-xtd_contato.zip</downloadurl>
+		</downloads>
+		<targetplatform name="joomla" version="3.[0123456789]"/>
+		<tags>
+			<tag>stable</tag>
+		</tags>
+	</update>
+</updates>
