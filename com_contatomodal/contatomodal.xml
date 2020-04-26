@@ -21,9 +21,5 @@
             <folder>models</folder>
             <folder>views</folder>
         </files>
-        <languages folder="language">
-            <language tag="pt-BR">pt-BR/pt-BR.com_contatomodal.ini</language>
-            <language tag="pt-BR">pt-BR/pt-BR.com_contatomodal.sys.ini</language>
-        </languages>
     </administration>
 </extension>

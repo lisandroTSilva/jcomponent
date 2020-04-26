@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<updates>
+	<update>
+		<name>plg_content_load_contato</name>
+		<element>load_contato</element>
+		<type>plugin</type>
+		<folder>content</folder>
+		<client>0</client>
+		<version>0.0.1</version>
+		<infourl title="Repositório plg_content_load_contato">https://github.com/lisandroTSilva/jcomponent</infourl>
+        <downloads>
+			<downloadurl type="full" format="zip">https://github.com/lisandroTSilva/jcomponent/raw/master/build/plg_content_contato.zip</downloadurl>
+		</downloads>
+		<targetplatform name="joomla" version="3.[0123456789]"/>
+		<tags>
+			<tag>stable</tag>
+		</tags>
+	</update>
+</updates>
