@@ -14,7 +14,7 @@
 		<folder>language</folder>
 	</files>
 	<updateservers>
-		<server type="extension" priority="1" name="Repositório Conteúdo - plg_content_load_contato">https://git.furg.br/bernardosilva/pkg_furg_joomla/raw/master/build/plg_content_load_contato.xml</server>
+		<server type="extension" priority="1" name="Repositório Conteúdo - plg_content_load_contato">https://raw.githubusercontent.com/lisandroTSilva/jcomponent/master/build/plg_content_contato.xml</server>
 	</updateservers>
 
 	<media folder="media" destination="plg_content_load_contato">

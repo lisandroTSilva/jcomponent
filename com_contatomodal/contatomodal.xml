@@ -2,15 +2,15 @@
 <extension type="component" version="3.7" method="upgrade">
     <name>com_contatomodal</name>
     <author>Lisandro Silva</author>
-    <creationDate>Julho 2020</creationDate>
+    <creationDate>Abril 2020</creationDate>
     <copyright></copyright>
     <license>GNU General Public License version 2 or later</license>
     <authorEmail>lisandro.t.silva@gmail.com</authorEmail>
     <authorUrl></authorUrl>
-    <version>0.0.2</version>
+    <version>0.0.1</version>
     <description>COM_CONTATOMODAL_XML_DESCRIPTION</description>
     <updateservers>
-        <server type="extension" priority="1" name="Repositório com_contatomodal">https://git.furg.br/bernardosilva/pkg_furg_joomla/raw/master/build/com_contatomodal.xml</server>
+        <server type="extension" priority="1" name="Repositório com_contatomodal">https://raw.githubusercontent.com/lisandroTSilva/jcomponent/master/build/com_contatomodal.xml</server>
     </updateservers>
     <administration>
         <files>
