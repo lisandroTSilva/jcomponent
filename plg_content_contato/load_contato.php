@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Joomla.Plugin
  * @subpackage  Content.load_contato
@@ -20,8 +21,10 @@ $document->addScriptDeclaration("
     PlgContato.ERROR_VALIDACAO_FORMULARIO = '" . JText::_('PLG_CONTENT_LOAD_CONTATO_ERROR_VALIDACAO_FORMULARIO') . "';
 ");
 
-class PlgContentLoad_contato extends JPlugin {
-	public function onAjaxLoadContato() {
+class PlgContentLoad_contato extends JPlugin
+{
+	public function onAjaxLoadContato()
+	{
 		$input = JFactory::getApplication()->input;
 		switch ($input->get('op')) {
 			case 'mailSender':
@@ -51,7 +54,8 @@ class PlgContentLoad_contato extends JPlugin {
 		}
 	}
 
-	public function onContentPrepare($context, &$article, &$params, $page = 0) {
+	public function onContentPrepare($context, &$article, &$params, $page = 0)
+	{
 		if (strpos($article->text, 'form-contact') === false) {
 			return true;
 		}
@@ -68,11 +72,21 @@ class PlgContentLoad_contato extends JPlugin {
 		}
 	}
 
-	public function getLayoutFormulario($id_contato) {
+	public function getLayoutFormulario($id_contato)
+	{
 		JModelLegacy::addIncludePath(JPATH_ROOT . '/components/com_contact/models', 'ContactModel');
 		$model = JModelLegacy::getInstance('Contact', 'ContactModel', ['ignore_request' => true]);
 		$model->setState('params', JComponentHelper::getParams('com_contact'));
 		$contato = $model->getItem($id_contato);
+
+
+		$title = '';
+		$customFieldnames = FieldsHelper::getFields('com_contact.contact', $id_contato, true); // get custom field names by article id
+		if (isset($customFieldnames) && isset($customFieldnames)) {
+			$modelField = JModelLegacy::getInstance('Field', 'FieldsModel', array('ignore_request' => true));
+			$values = $modelField->getFieldValues([$customFieldnames[0]->id], $id_contato);
+			$title = reset($values);
+		}
 
 		$PLG_CONTENT_LOAD_CONTATO_CAMPO_OBRIGATORIO = JText::_('PLG_CONTENT_LOAD_CONTATO_CAMPO_OBRIGATORIO');
 		$PLG_CONTENT_LOAD_CONTATO_ENVIAR = JText::_('PLG_CONTENT_LOAD_CONTATO_ENVIAR');
@@ -81,52 +95,53 @@ class PlgContentLoad_contato extends JPlugin {
 		$PLG_CONTENT_LOAD_CONTATO_EMAIL = JText::_('PLG_CONTENT_LOAD_CONTATO_EMAIL');
 		$PLG_CONTENT_LOAD_CONTATO_ASSUNTO = JText::_('PLG_CONTENT_LOAD_CONTATO_ASSUNTO');
 		$PLG_CONTENT_LOAD_CONTATO_MENSAGEM = JText::_('PLG_CONTENT_LOAD_CONTATO_MENSAGEM');
-		$PLG_CONTENT_LOAD_CONTATO_CONTACT_AS = JText::sprintf('PLG_CONTENT_LOAD_CONTATO_CONTACT_AS', $contato->name);
+		$PLG_CONTENT_LOAD_CONTATO_CONTACT_AS = $title ? $title : JText::sprintf('PLG_CONTENT_LOAD_CONTATO_CONTACT_AS', $contato->name);
 
 		return <<<EOD
-            <form action="" class="PLG_CONTENT_LOAD_CONTATO form form-validator">
-            <h2 class="form__title">{$PLG_CONTENT_LOAD_CONTATO_CONTACT_AS}</h2>
+			<form action="" class="PLG_CONTENT_LOAD_CONTATO form form-validator">
+            <h2 class="form__title mb-4">{$PLG_CONTENT_LOAD_CONTATO_CONTACT_AS}</h2>
 
             <input type="hidden" name="contato_id" required="required" value="$id_contato">
 
             <div class="row">
-                <div class="form-group input-group-lg col-sm-2">
-                    <label for="nome" class="form__label">{$PLG_CONTENT_LOAD_CONTATO_NOME} *</label>
+				<div class="form-group col-sm-6">
+                    <label for="nome" class="form__label">{$PLG_CONTENT_LOAD_CONTATO_NOME}</label>
                     <input type="text" name="nome" id="nome" class="form-control" required>
-                    <p class="validation-message text-danger">{$PLG_CONTENT_LOAD_CONTATO_CAMPO_OBRIGATORIO}</p>
+                    <!--p class="validation-message text-danger">{$PLG_CONTENT_LOAD_CONTATO_CAMPO_OBRIGATORIO}</p-->
                 </div>
-            </div>
-
-            <div class="row">
-                <div class="form-group input-group-lg col-sm-2">
-                    <label for="email" class="form__label">{$PLG_CONTENT_LOAD_CONTATO_EMAIL} *</label>
+				<div class="form-group col-sm-6">
+					<label for="email" class="form__label">{$PLG_CONTENT_LOAD_CONTATO_EMAIL}</label>
                     <input type="email" name="email" id="email" class="form-control" required>
-                    <p class="validation-message text-danger">{$PLG_CONTENT_LOAD_CONTATO_CAMPO_OBRIGATORIO}</p>
+                    <!--p class="validation-message text-danger">{$PLG_CONTENT_LOAD_CONTATO_CAMPO_OBRIGATORIO}</p-->
                 </div>
             </div>
 
             <div class="row">
-                <div class="form-group input-group-lg col-sm-2">
-                    <label for="assunto" class="form__label">{$PLG_CONTENT_LOAD_CONTATO_ASSUNTO} *</label>
+				<div class="form-group col-sm-12">
+					<label for="assunto" class="form__label">{$PLG_CONTENT_LOAD_CONTATO_ASSUNTO}</label>
                     <input type="text" name="assunto" id="assunto" class="form-control" required>
-                    <p class="validation-message text-danger">{$PLG_CONTENT_LOAD_CONTATO_CAMPO_OBRIGATORIO}</p>
+                    <!-- p class="validation-message text-danger">{$PLG_CONTENT_LOAD_CONTATO_CAMPO_OBRIGATORIO}</p-->
                 </div>
             </div>
 
             <div class="row">
-                <div class="form-group col-sm-6">
-                    <label for="mensagem" class="form__label">{$PLG_CONTENT_LOAD_CONTATO_MENSAGEM} *</label>
-                    <textarea class="form-control" rows="7" name="mensagem" id="mensagem" required></textarea>
-                    <p class="validation-message text-danger">{$PLG_CONTENT_LOAD_CONTATO_CAMPO_OBRIGATORIO}</p>
+				<div class="form-group col-sm-12">
+                    <label for="mensagem" class="form__label">{$PLG_CONTENT_LOAD_CONTATO_MENSAGEM}</label>
+                    <textarea class="form-control" rows="3" name="mensagem" id="mensagem" required></textarea>
+                    <!-- p class="validation-message text-danger">{$PLG_CONTENT_LOAD_CONTATO_CAMPO_OBRIGATORIO}</p-->
                 </div>
             </div>
 
-            <button class="btn btn-default form__button validator-check">{$PLG_CONTENT_LOAD_CONTATO_ENVIAR}</button>
-            </form>
+			<div class="text-right">
+				<button class="btn btn-primary btn-lg form__button validator-check" 
+					type="button">{$PLG_CONTENT_LOAD_CONTATO_ENVIAR}</button>
+			</div>
+		</form>
 EOD;
 	}
 
-	private function _sendEmail($data, $contact, $copy_email_activated = false) {
+	private function _sendEmail($data, $contact, $copy_email_activated = false)
+	{
 		$app = JFactory::getApplication();
 
 		if ($contact->email_to == '' && $contact->user_id != 0) {

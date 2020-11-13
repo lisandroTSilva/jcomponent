@@ -73,6 +73,8 @@ function build($folder, $xmlfile, $client, $element)
 }
 
 build('com_patrimonio', 'patrimonio.xml', 0, 'patrimonio');
+build('com_eventos', 'eventos.xml', 0, 'eventos');
+build('com_inscritos', 'inscritos.xml', 0, 'inscritos');
 build('com_contatomodal', 'contatomodal.xml', 0, 'contatomodal');
 build('plg_editors-xtd_contato', 'btn_contato.xml', 0, 'btn_contato');
 build('plg_content_contato', 'load_contato.xml', 0, 'load_contato');
