@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS `#__inscritos` (
 PRIMARY KEY (`id`)
 ) DEFAULT COLLATE=utf8mb4_unicode_ci;
 
-ALTER TABLE `#__inscritos` ADD CONSTRAINT `nome_email_celular` UNIQUE KEY(`nome`, `email`, `celular`, `evento_id`);
+ALTER TABLE `#__inscritos` ADD CONSTRAINT `nome_email_celular_evento` UNIQUE KEY(`nome`, `email`, `celular`, `evento_id`);
 
 INSERT INTO `#__content_types` (`type_title`, `type_alias`, `table`, `field_mappings`, `content_history_options`)
 SELECT * FROM ( SELECT 'Inscritos','com_inscritos.inscritos','{"special":{"dbtable":"#__inscritos","key":"id","type":"Inscritos","prefix":"InscritosTable"}}', CASE 
