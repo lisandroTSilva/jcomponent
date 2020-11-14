@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.0" method="upgrade">
+    <name>com_inscritos</name>
+    <creationDate>11/11/2020</creationDate>
+    <copyright>2020 Lisandro Tavares da Silva</copyright>
+    <license>GNU General Public License versão 2 ou posterior; consulte o arquivo License. txt</license>
+    <author>Lisandro Tavares da Silva</author>
+    <authorEmail>lisandro.t.silva@gmail.com</authorEmail>
+    <version>1.0.2</version>
+    <description>COM_INSCRITOS_XML_DESCRIPTION</description>
+    
+    
+    
+    <install> <!-- Runs on install -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <update> <!-- Runs on update -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/update.mysql.utf8.sql</file>
+        </sql>
+    </update>
+    <uninstall> <!-- Runs on uninstall -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+	
+	<updateservers>
+        <server type="extension" priority="1" name="Repositório com_contatomodal">https://raw.githubusercontent.com/lisandroTSilva/jcomponent/master/build/com_inscritos.xml</server>
+    </updateservers>
+
+    <files folder="site">
+        <filename>index.html</filename>
+        <filename>inscritos.php</filename>
+        <filename>controller.php</filename>
+        <filename>router.php</filename>
+        <folder>views</folder>
+        <folder>models</folder>
+        <folder>controllers</folder>
+        <folder>helpers</folder>
+    </files>
+    <media destination="com_inscritos" folder="media">
+        <folder>js</folder>
+        <folder>css</folder>
+    </media>
+    <languages folder="site/languages">
+        
+			<language tag="en-GB">en-GB/en-GB.com_inscritos.ini</language>
+			<language tag="pt-BR">pt-BR/pt-BR.com_inscritos.ini</language>
+    </languages>
+    <administration>
+        <files folder="administrator">
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            <filename>controller.php</filename>
+            <filename>index.html</filename>
+            <filename>inscritos.php</filename>
+            <folder>controllers</folder>
+            <folder>assets</folder>
+            <folder>helpers</folder>
+            <folder>models</folder>
+            <folder>sql</folder>
+            <folder>tables</folder>
+            <folder>views</folder>
+        </files>
+        <languages folder="administrator/languages">
+			<language tag="en-GB">en-GB/en-GB.com_inscritos.ini</language>
+			<language tag="en-GB">en-GB/en-GB.com_inscritos.sys.ini</language>
+			<language tag="pt-BR">pt-BR/pt-BR.com_inscritos.ini</language>
+			<language tag="pt-BR">pt-BR/pt-BR.com_inscritos.sys.ini</language>
+        </languages>
+    </administration>
+    <config>
+        <fields name="params">
+            <fieldset name="component">
+                <field name="save_history" default="0" />
+            </fieldset>
+        </fields>
+    </config>
+    <plugins>
+        <plugin group="search" plugin="inscritos"/>
+    </plugins>
+    
+</extension>
+<!-- Component built by the Joomla Component Creator -->
+<!-- http://www.component-creator.com/ -->

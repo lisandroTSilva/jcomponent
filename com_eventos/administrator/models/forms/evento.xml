@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+  <fieldset>
+    <field name="id" type="text" readonly="true" class="readonly" default="0" description="JGLOBAL_FIELD_ID_DESC"/>
+    <field name="ordering"/>
+    <field name="state" default="1" type="list" label="JSTATUS" description="JFIELD_PUBLISHED_DESC" class="inputbox" size="1">
+      <option value="1">JPUBLISHED</option>
+      <option value="0">JUNPUBLISHED</option>
+      <option value="2">JARCHIVED</option>
+      <option value="-2">JTRASHED</option>
+    </field>
+    <field name="checked_out" type="hidden" filter="unset"/>
+    <field name="checked_out_time" default="0000-00-00 00:00:00" type="hidden" filter="unset"/>
+    <field name="created_by" type="createdby" default="0" label="COM_EVENTOS_FORM_LBL_EVENTO_CREATED_BY" description="COM_EVENTOS_FORM_DESC_EVENTO_CREATED_BY" hidden="true" hint="COM_EVENTOS_FORM_LBL_EVENTO_CREATED_BY"/>
+    <field name="modified_by" type="modifiedby" default="0" label="COM_EVENTOS_FORM_LBL_EVENTO_MODIFIED_BY" description="COM_EVENTOS_FORM_DESC_EVENTO_MODIFIED_BY" hidden="true" hint="COM_EVENTOS_FORM_LBL_EVENTO_MODIFIED_BY"/>
+    <field name="nome" filter="safehtml" type="text" required="true" message="Nome não informado" label="COM_EVENTOS_FORM_LBL_EVENTO_NOME" description="COM_EVENTOS_FORM_DESC_EVENTO_NOME" hint="COM_EVENTOS_FORM_LBL_EVENTO_NOME"/>
+    <field name="nome_interno" filter="safehtml" type="text" required="true" message="Nome interno não informado" label="COM_EVENTOS_FORM_LBL_EVENTO_NOME_INTERNO" description="COM_EVENTOS_FORM_DESC_EVENTO_NOME_INTERNO" hint="COM_EVENTOS_FORM_LBL_EVENTO_NOME_INTERNO"/>
+    <field name="descricao" filter="safehtml" type="textarea" label="COM_EVENTOS_FORM_LBL_EVENTO_DESCRICAO" description="COM_EVENTOS_FORM_DESC_EVENTO_DESCRICAO" hint="COM_EVENTOS_FORM_LBL_EVENTO_DESCRICAO"/>
+    <field name="data" default="0000-00-00" class="inputbox" format="%Y-%m-%d %H:%M:%S" timeformat="24" filter="server_utc" translateformat="true" showtime="true" singleheader="false" todaybutton="true" weeknumbers="false" filltable="false" type="calendar" required="true" message="Data do evento não informado" label="COM_EVENTOS_FORM_LBL_EVENTO_DATA" description="COM_EVENTOS_FORM_DESC_EVENTO_DATA" hint="COM_EVENTOS_FORM_LBL_EVENTO_DATA"/>
+    <field name="data_limite" class="inputbox" format="%Y-%m-%d %H:%M:%S" timeformat="24" filter="server_utc" translateformat="true" showtime="true" singleheader="false" todaybutton="true" weeknumbers="false" filltable="false" type="calendar" required="true" message="Data limite para inscrição não informado" label="COM_EVENTOS_FORM_LBL_EVENTO_DATA_LIMITE" description="COM_EVENTOS_FORM_DESC_EVENTO_DATA_LIMITE" hint="COM_EVENTOS_FORM_LBL_EVENTO_DATA_LIMITE"/>
+    <field name="nro_vagas" required="true" message="Número de vagas não informado" label="COM_EVENTOS_FORM_LBL_EVENTO_NRO_VAGAS" description="COM_EVENTOS_FORM_DESC_EVENTO_NRO_VAGAS" hint="COM_EVENTOS_FORM_LBL_EVENTO_NRO_VAGAS"/>
+    <field name="version_note" type="text" label="JGLOBAL_FIELD_VERSION_NOTE_LABEL" description="JGLOBAL_FIELD_VERSION_NOTE_DESC" class="inputbox" size="45" labelclass="control-label"/>
+  </fieldset>
+</form>

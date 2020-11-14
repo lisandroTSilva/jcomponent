@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields name="filter">
+        <field name="search" type="text" description="COM_EVENTOS_SEARCH_FILTER_SUBMIT"
+               label="COM_USERS_FILTER_SEARCH_DESC"
+               class="js-stools-search-string" />
+
+        <field name="state"
+               type="status"
+               label="COM_EVENTOS_FILTER_STATE"
+               description="COM_EVENTOS_FILTER_STATE_DESC"
+               onchange="this.form.submit();"
+        >
+            <option value="">JOPTION_SELECT_PUBLISHED</option>
+        </field>
+
+        <field name="data.from" label="COM_EVENTOS_EVENTOS_DATA_FILTER_FROM" type="calendar" onchange="this.form.submit();" filter="safehtml" class="inputbox" showtime="false" translateformat="false" hint="COM_EVENTOS_EVENTOS_DATA_FILTER_FROM"/>
+<field name="data.to" label="COM_EVENTOS_EVENTOS_DATA_FILTER_TO" type="calendar" onchange="this.form.submit();" filter="safehtml" class="inputbox" showtime="false" translateformat="false" hint="COM_EVENTOS_EVENTOS_DATA_FILTER_TO"/>
+
+
+    </fields>
+
+    <fields name="list">
+
+        <field name="fullordering"
+               type="list"
+               label="COM_EVENTOS_LIST_FULL_ORDERING"
+               description="COM_EVENTOS_LIST_FULL_ORDERING_DESC"
+               onchange="this.form.submit();"
+               default="a.id DESC"
+        >
+            <option value="">JGLOBAL_SORT_BY</option>
+            <option value="a.`ordering` ASC">COM_EVENTOS_ORDERING_ASC</option><option value="a.`ordering` DESC">COM_EVENTOS_ORDERING_DESC</option><option value="a.`state` ASC">COM_EVENTOS_STATE_ASC</option><option value="a.`state` DESC">COM_EVENTOS_STATE_DESC</option><option value="a.`nome` ASC">COM_EVENTOS_NOME_ASC</option><option value="a.`nome` DESC">COM_EVENTOS_NOME_DESC</option><option value="a.`nome_interno` ASC">COM_EVENTOS_NOME_INTERNO_ASC</option><option value="a.`nome_interno` DESC">COM_EVENTOS_NOME_INTERNO_DESC</option><option value="a.`data` ASC">COM_EVENTOS_DATA_ASC</option><option value="a.`data` DESC">COM_EVENTOS_DATA_DESC</option><option value="a.`nro_vagas` ASC">COM_EVENTOS_NRO_VAGAS_ASC</option><option value="a.`nro_vagas` DESC">COM_EVENTOS_NRO_VAGAS_DESC</option>
+
+        </field>
+
+       <field name="limit"
+               type="limitbox"
+               label="COM_EVENTOS_LIST_LIMIT"
+               description="COM_EVENTOS_LIST_LIMIT_DESC"
+               class="input-mini"
+               default="25"
+               onchange="this.form.submit();"
+        />
+
+    </fields>
+
+</form>
