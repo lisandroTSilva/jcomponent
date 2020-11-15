@@ -93,10 +93,6 @@ class InscritosController extends \Joomla\CMS\MVC\Controller\BaseController
 			echo new JResponseJson(null, "O campo Nome é obrigatório.", true);
 			exit;
 		}
-		if (empty($email)) {
-			echo new JResponseJson(null, "O campo Email é obrigatório.", true);
-			exit;
-		}
 		if (empty($celular)) {
 			echo new JResponseJson(null, "O campo Celular é obrigatório.", true);
 			exit;
