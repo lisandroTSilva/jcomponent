@@ -21,12 +21,32 @@ class InscritosController extends \Joomla\CMS\MVC\Controller\BaseController
 	public function evento()
 	{
 		$input = JFactory::getApplication()->input;
-
 		$eventoId = $input->get("evento_id", NULL, 'STRING');
 
 		if (empty($eventoId)) {
 			echo new JResponseJson([]);
 			exit;
+		}
+
+		try {
+			$evento = $this->_evento($eventoId);
+			echo new JResponseJson($evento);
+		} catch (RuntimeException $e) {
+			echo new JResponseJson(null, "Não foi possível obter o número de participantes.", true);
+		}
+	}
+
+	private function _evento($id = null)
+	{
+		if (!empty($id) && $id > 0) {
+			$eventoId = $id;
+		} else {
+			$input = JFactory::getApplication()->input;
+			$eventoId = $input->get("evento_id", NULL, 'STRING');
+		}
+
+		if (empty($eventoId)) {
+			return [];
 		}
 
 		$db = JFactory::getDbo();
@@ -42,13 +62,9 @@ class InscritosController extends \Joomla\CMS\MVC\Controller\BaseController
 
 		$db->setQuery($q);
 
-		try {
-			$evento = $db->loadObjectList();
-			$evento = is_array($evento) ? reset($evento) : array();
-			echo new JResponseJson($evento);
-		} catch (RuntimeException $e) {
-			echo new JResponseJson(null, "Não foi possível obter o número de participantes.", true);
-		}
+		$evento = $db->loadObjectList();
+		$evento = is_array($evento) ? reset($evento) : array();
+		return $evento;
 	}
 
 	public function eventos()
@@ -79,6 +95,7 @@ class InscritosController extends \Joomla\CMS\MVC\Controller\BaseController
 
 	public function inscricao()
 	{
+
 		if ("OPTIONS" == $_SERVER['REQUEST_METHOD']) {
 			exit(0);
 		}
@@ -88,6 +105,15 @@ class InscritosController extends \Joomla\CMS\MVC\Controller\BaseController
 		$email = $input->json->get("email", NULL, 'STRING');
 		$celular = $input->json->get("celular", NULL, 'STRING');
 		$evento_id = $input->json->get("evento_id", NULL, 'STRING');
+
+		$evento = $this->_evento($evento_id);
+
+		if (!empty($evento)) {
+			if ($evento->nro_vagas <= $evento->registeredParticipants) {
+				echo new JResponseJson(null, "Esse evento lotou.", true);
+				exit;
+			}
+		}
 
 		if (empty($nome)) {
 			echo new JResponseJson(null, "O campo Nome é obrigatório.", true);
