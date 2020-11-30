@@ -6,29 +6,26 @@
     <license>GNU General Public License versão 2 ou posterior; consulte o arquivo License. txt</license>
     <author>Lisandro Tavares da Silva</author>
     <authorEmail>lisandro.t.silva@gmail.com</authorEmail>
-    <version>1.0.5</version>
+    <version>1.0.6</version>
     <description>COM_INSCRITOS_XML_DESCRIPTION</description>
-    
-    
-    
-    <install> <!-- Runs on install -->
+    <install>        <!-- Runs on install -->
         <sql>
             <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
         </sql>
     </install>
-    <update> <!-- Runs on update -->
+    <update>        <!-- Runs on update -->
         <sql>
             <file driver="mysql" charset="utf8">sql/update.mysql.utf8.sql</file>
         </sql>
     </update>
-    <uninstall> <!-- Runs on uninstall -->
+    <uninstall>        <!-- Runs on uninstall -->
         <sql>
             <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
         </sql>
     </uninstall>
-	
-	<updateservers>
-        <server type="extension" priority="1" name="Repositório com_contatomodal">https://raw.githubusercontent.com/lisandroTSilva/jcomponent/master/build/com_inscritos.xml</server>
+
+    <updateservers>
+        <server type="extension" priority="1" name="Repositório de inscritos no evento">https://raw.githubusercontent.com/lisandroTSilva/jcomponent/master/build/com_inscritos.xml</server>
     </updateservers>
 
     <files folder="site">
@@ -41,14 +38,15 @@
         <folder>controllers</folder>
         <folder>helpers</folder>
     </files>
+
     <media destination="com_inscritos" folder="media">
         <folder>js</folder>
         <folder>css</folder>
     </media>
+
     <languages folder="site/languages">
-        
-			<language tag="en-GB">en-GB/en-GB.com_inscritos.ini</language>
-			<language tag="pt-BR">pt-BR/pt-BR.com_inscritos.ini</language>
+        <language tag="en-GB">en-GB/en-GB.com_inscritos.ini</language>
+        <language tag="pt-BR">pt-BR/pt-BR.com_inscritos.ini</language>
     </languages>
     <administration>
         <files folder="administrator">
@@ -66,10 +64,10 @@
             <folder>views</folder>
         </files>
         <languages folder="administrator/languages">
-			<language tag="en-GB">en-GB/en-GB.com_inscritos.ini</language>
-			<language tag="en-GB">en-GB/en-GB.com_inscritos.sys.ini</language>
-			<language tag="pt-BR">pt-BR/pt-BR.com_inscritos.ini</language>
-			<language tag="pt-BR">pt-BR/pt-BR.com_inscritos.sys.ini</language>
+            <language tag="en-GB">en-GB/en-GB.com_inscritos.ini</language>
+            <language tag="en-GB">en-GB/en-GB.com_inscritos.sys.ini</language>
+            <language tag="pt-BR">pt-BR/pt-BR.com_inscritos.ini</language>
+            <language tag="pt-BR">pt-BR/pt-BR.com_inscritos.sys.ini</language>
         </languages>
     </administration>
     <config>
@@ -82,7 +80,4 @@
     <plugins>
         <plugin group="search" plugin="inscritos"/>
     </plugins>
-    
 </extension>
-<!-- Component built by the Joomla Component Creator -->
-<!-- http://www.component-creator.com/ -->

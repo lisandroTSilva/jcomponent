@@ -6,29 +6,27 @@
     <license>GNU General Public License versão 2 ou posterior; consulte o arquivo License. txt</license>
     <author>Lisandro Tavares da Silva</author>
     <authorEmail>lisandro.t.silva@gmail.com</authorEmail>
-    <version>1.0.2</version>
+    <version>1.1.2</version>
     <description>COM_EVENTOS_XML_DESCRIPTION</description>
-    
-    
-    
-    <install> <!-- Runs on install -->
+
+    <install>        <!-- Runs on install -->
         <sql>
             <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
         </sql>
     </install>
-    <update> <!-- Runs on update -->
+    <update>        <!-- Runs on update -->
         <sql>
             <file driver="mysql" charset="utf8">sql/update.mysql.utf8.sql</file>
         </sql>
     </update>
-    <uninstall> <!-- Runs on uninstall -->
+    <uninstall>        <!-- Runs on uninstall -->
         <sql>
             <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
         </sql>
     </uninstall>
-	
-	<updateservers>
-        <server type="extension" priority="1" name="Repositório com_contatomodal">https://raw.githubusercontent.com/lisandroTSilva/jcomponent/master/build/com_eventos.xml</server>
+
+    <updateservers>
+        <server type="extension" priority="1" name="Repositório de eventos">https://raw.githubusercontent.com/lisandroTSilva/jcomponent/master/build/com_eventos.xml</server>
     </updateservers>
 
     <files folder="site">
@@ -41,19 +39,21 @@
         <folder>controllers</folder>
         <folder>helpers</folder>
     </files>
+
     <media destination="com_eventos" folder="media">
         <folder>js</folder>
         <folder>css</folder>
     </media>
+
     <languages folder="site/languages">
-        
-			<language tag="en-GB">en-GB/en-GB.com_eventos.ini</language>
-			<language tag="pt-BR">pt-BR/pt-BR.com_eventos.ini</language>
+        <language tag="en-GB">en-GB/en-GB.com_eventos.ini</language>
+        <language tag="pt-BR">pt-BR/pt-BR.com_eventos.ini</language>
     </languages>
+
     <administration>
         <menu>COM_EVENTOS</menu>
-        <submenu>    
-			<menu link="option=com_eventos&amp;view=eventos" view="eventos" alt="Eventos/Eventos">COM_EVENTOS_TITLE_EVENTOS</menu>
+        <submenu>
+            <menu link="option=com_eventos&amp;view=eventos" view="eventos" alt="Eventos/Eventos">COM_EVENTOS_TITLE_EVENTOS</menu>
             <menu link="option=com_inscritos&amp;view=inscrito" view="inscrito" alt="Eventos/Inscritos">COM_INSCRITOS_TITLE_INSCRITO</menu>
         </submenu>
         <files folder="administrator">
@@ -70,14 +70,15 @@
             <folder>tables</folder>
             <folder>views</folder>
         </files>
+
         <languages folder="administrator/languages">
-            
-			<language tag="en-GB">en-GB/en-GB.com_eventos.ini</language>
-			<language tag="en-GB">en-GB/en-GB.com_eventos.sys.ini</language>
-			<language tag="pt-BR">pt-BR/pt-BR.com_eventos.ini</language>
-			<language tag="pt-BR">pt-BR/pt-BR.com_eventos.sys.ini</language>
+            <language tag="en-GB">en-GB/en-GB.com_eventos.ini</language>
+            <language tag="en-GB">en-GB/en-GB.com_eventos.sys.ini</language>
+            <language tag="pt-BR">pt-BR/pt-BR.com_eventos.ini</language>
+            <language tag="pt-BR">pt-BR/pt-BR.com_eventos.sys.ini</language>
         </languages>
     </administration>
+
     <config>
         <fields name="params">
             <fieldset name="component">
@@ -85,10 +86,8 @@
             </fieldset>
         </fields>
     </config>
+
     <plugins>
         <plugin group="search" plugin="eventos"/>
     </plugins>
-    
 </extension>
-<!-- Component built by the Joomla Component Creator -->
-<!-- http://www.component-creator.com/ -->
