@@ -117,7 +117,7 @@ class InscritosController extends \Joomla\CMS\MVC\Controller\BaseController
 			if (strtotime($evento->data_limite) < strtotime(date('Y-m-d H:i:s'))) {
 
 				$date = new DateTime($evento->data_limite);
-				echo new JResponseJson(null, "Não é possível fazer inscrição depois das " . $date->format('d/m/Y H:i') . ".", true);
+				echo new JResponseJson(null, "Não é possível fazer inscrição depois de " . $date->format('d/m/Y \à\s H:i') . ".", true);
 				exit;
 			}
 		}
