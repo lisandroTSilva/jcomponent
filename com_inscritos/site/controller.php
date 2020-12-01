@@ -52,7 +52,7 @@ class InscritosController extends \Joomla\CMS\MVC\Controller\BaseController
 		$db = JFactory::getDbo();
 		$q = $db->getQuery(true);
 
-		$q->select($db->quoteName(array('eventos.id', 'eventos.nome', 'eventos.data', 'eventos.nro_vagas')))
+		$q->select($db->quoteName(array('eventos.id', 'eventos.nome', 'eventos.data', 'eventos.nro_vagas', 'eventos.data_limite')))
 			->select('COUNT(`inscritos`.id) as registeredParticipants')
 			->from($db->quoteName('#__eventos', 'eventos'))
 			->join('LEFT', $db->quoteName('#__inscritos', 'inscritos') . ' ON ' . $db->quoteName('inscritos.evento_id') . ' = ' . $db->quoteName('eventos.id'))
@@ -108,13 +108,19 @@ class InscritosController extends \Joomla\CMS\MVC\Controller\BaseController
 
 		$evento = $this->_evento($evento_id);
 
+
 		if (!empty($evento)) {
 			if ($evento->nro_vagas <= $evento->registeredParticipants) {
 				echo new JResponseJson(null, "Esse evento lotou.", true);
 				exit;
 			}
-		}
+			if (strtotime($evento->data_limite) < strtotime(date('Y-m-d H:i:s'))) {
 
+				$date = new DateTime($evento->data_limite);
+				echo new JResponseJson(null, "Não é possível fazer inscrição depois das " . $date->format('d/m/Y H:i') . ".", true);
+				exit;
+			}
+		}
 		if (empty($nome)) {
 			echo new JResponseJson(null, "O campo Nome é obrigatório.", true);
 			exit;
