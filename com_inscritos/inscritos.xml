@@ -6,7 +6,7 @@
     <license>GNU General Public License versão 2 ou posterior; consulte o arquivo License. txt</license>
     <author>Lisandro Tavares da Silva</author>
     <authorEmail>lisandro.t.silva@gmail.com</authorEmail>
-    <version>1.7.1</version>
+    <version>1.8.1</version>
     <description>COM_INSCRITOS_XML_DESCRIPTION</description>
     <install>        <!-- Runs on install -->
         <sql>
